@@ -38,3 +38,20 @@ class LinkedList(object):
             current = current.next
             length += 1
         return length
+
+    def __iter__(self):
+        current = self.head
+        while current:
+            yield current.value
+            current = current.next
+
+    def reverse(self):
+        previous = None
+        current = self.head
+        next_ = None
+        while current:
+            next_ = current.next
+            current.next = previous
+            previous = current
+            current = next_
+        self.head = previous

@@ -23,6 +23,7 @@ def test_random_linked_list():
     numbers = get_random_int()
     random_array = [get_random_int() for _ in range(numbers)]
     ll = LinkedList(random_array)
+    assert list(ll) == random_array
     assert len(ll) == len(random_array)
     log(ll.head)
     current = ll.head
@@ -31,6 +32,13 @@ def test_random_linked_list():
         assert current.value == random_array[i]
         current = current.next
         i += 1
+    reverse_compare(ll, random_array)
+
+
+def reverse_compare(ll, random_array):
+    # TODO: make it as a single test
+    ll.reverse()
+    assert list(ll) == list(reversed(random_array))
 
 
 def test_empty_list():
