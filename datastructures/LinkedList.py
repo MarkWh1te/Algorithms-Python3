@@ -9,7 +9,7 @@ class LinkedListNode(object):
         self.value = value
         self.next = None
 
-    def __repr__(self)->str:
+    def __repr__(self) -> str:
         if self.next:
             return f'{self.value}->{self.next}'
         else:
@@ -31,7 +31,7 @@ class LinkedList(object):
                 current.next = next_node
                 current = next_node
 
-    def __len__(self)->int:
+    def __len__(self) -> int:
         length = 0
         current = self.head
         while current != None:
@@ -50,8 +50,11 @@ class LinkedList(object):
         current = self.head
         next_ = None
         while current:
+            # store the next value
             next_ = current.next
+            # reverse the node
             current.next = previous
+            # move to next node
             previous = current
             current = next_
         self.head = previous
